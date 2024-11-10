@@ -7,7 +7,7 @@ const routes = [
     { path: '/basket', component: Basket },
 ];
 const router = createRouter({
-    history: createWebHistory('/Indis/'),
+    history: createWebHistory('/Indis'),
     routes,
 });
 export default router;

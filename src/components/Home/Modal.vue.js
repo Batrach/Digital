@@ -15,12 +15,14 @@ export default defineComponent({
             emit('close');
         };
         const buyProduct = () => {
-            store.dispatch('addToCart', {
-                text: product.value.text,
-                price: product.value.price,
-            });
-            alert(`Вы купили ${product.value.text}`);
-            closeModal();
+            if (product.value) {
+                store.dispatch('addToCart', {
+                    text: product.value.text,
+                    price: product.value.price,
+                });
+                alert(`Вы купили ${product.value.text}`);
+                closeModal();
+            }
         };
         return {
             closeModal,
@@ -50,27 +52,27 @@ function __VLS_template() {
     __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("modal-content w-full max-w-[954px]") }, });
     __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("flex p-10 bg-primory items-center justify-between") }, });
     __VLS_elementAsFunction(__VLS_intrinsicElements.h2, __VLS_intrinsicElements.h2)({ ...{ class: ("text-white text-[32px] font-bold") }, });
-    (__VLS_ctx.product.text);
+    (__VLS_ctx.product ? __VLS_ctx.product.text : 'Без названия');
     __VLS_elementAsFunction(__VLS_intrinsicElements.button, __VLS_intrinsicElements.button)({ ...{ onClick: (__VLS_ctx.closeModal) }, ...{ class: ("text-white text-4xl cursor-pointer") }, });
     __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("flex p-10 gap-10") }, });
     __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("w-full max-w-[462px]") }, });
-    __VLS_elementAsFunction(__VLS_intrinsicElements.img)({ ...{ class: ("w-full h-full object-cover") }, src: ((__VLS_ctx.product.image)), alt: ("Изображение товара"), });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.img)({ ...{ class: ("w-full h-full object-cover") }, src: ((__VLS_ctx.product ? __VLS_ctx.product.image : '')), alt: ("Изображение товара"), });
     __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("flex flex-col") }, });
     __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("mb-3") }, });
     __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("text-xl font-medium mb-2 text-[#606462]") }, });
     __VLS_elementAsFunction(__VLS_intrinsicElements.p, __VLS_intrinsicElements.p)({ ...{ class: ("text-2xl font-medium text-primory") }, });
-    (__VLS_ctx.product.description);
+    (__VLS_ctx.product ? __VLS_ctx.product.description : 'Без названия');
     __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("mb-3") }, });
     __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("text-xl font-medium mb-2 text-[#606462]") }, });
     __VLS_elementAsFunction(__VLS_intrinsicElements.p, __VLS_intrinsicElements.p)({ ...{ class: ("text-2xl font-medium text-primory") }, });
-    (__VLS_ctx.product.category);
+    (__VLS_ctx.product ? __VLS_ctx.product.category : 'Без названия');
     __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("mb-3") }, });
     __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("text-xl font-medium mb-2 text-[#606462]") }, });
     __VLS_elementAsFunction(__VLS_intrinsicElements.p, __VLS_intrinsicElements.p)({ ...{ class: ("text-2xl font-medium text-primory") }, });
-    (__VLS_ctx.product.rating);
+    (__VLS_ctx.product ? __VLS_ctx.product.rating : 'Без названия');
     __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("mt-auto text-4xl mb-6") }, });
     __VLS_elementAsFunction(__VLS_intrinsicElements.p, __VLS_intrinsicElements.p)({ ...{ class: ("font-bold") }, });
-    (__VLS_ctx.product.price);
+    (__VLS_ctx.product ? __VLS_ctx.product.price : 'Без названия');
     __VLS_elementAsFunction(__VLS_intrinsicElements.button, __VLS_intrinsicElements.button)({ ...{ onClick: (__VLS_ctx.buyProduct) }, ...{ class: ("bg-primory text-white text-center py-4 text-2xl font-medium") }, });
     __VLS_styleScopedClasses['modal-overlay'];
     __VLS_styleScopedClasses['modal-content'];

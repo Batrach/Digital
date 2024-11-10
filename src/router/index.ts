@@ -10,7 +10,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory('/Indis/'),
+  history: createWebHistory('/Indis'),
   routes,
 });
 
