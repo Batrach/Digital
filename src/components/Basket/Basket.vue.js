@@ -9,7 +9,7 @@ export default defineComponent({
         const totalQuantity = computed(() => store.getters.totalQuantity);
         const totalPrice = computed(() => store.getters.totalPrice);
         const removeItem = (item) => {
-            store.commit('removeFromCart', item); // Предположим, что у вас есть мутация removeFromCart
+            store.commit('removeFromCart', item);
         };
         return {
             cartItems,
@@ -43,21 +43,21 @@ function __VLS_template() {
     __VLS_elementAsFunction(__VLS_intrinsicElements.table, __VLS_intrinsicElements.table)({ ...{ class: ("w-full border-2 border-primory mb-[60px]") }, });
     __VLS_elementAsFunction(__VLS_intrinsicElements.thead, __VLS_intrinsicElements.thead)({});
     __VLS_elementAsFunction(__VLS_intrinsicElements.tr, __VLS_intrinsicElements.tr)({});
+    __VLS_elementAsFunction(__VLS_intrinsicElements.th, __VLS_intrinsicElements.th)({ ...{ class: ("text-primory text-left w-[504px]") }, });
     __VLS_elementAsFunction(__VLS_intrinsicElements.th, __VLS_intrinsicElements.th)({ ...{ class: ("text-primory text-left") }, });
-    __VLS_elementAsFunction(__VLS_intrinsicElements.th, __VLS_intrinsicElements.th)({ ...{ class: ("text-primory") }, });
-    __VLS_elementAsFunction(__VLS_intrinsicElements.th, __VLS_intrinsicElements.th)({ ...{ class: ("text-primory") }, });
-    __VLS_elementAsFunction(__VLS_intrinsicElements.th, __VLS_intrinsicElements.th)({ ...{ class: ("text-primory") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.th, __VLS_intrinsicElements.th)({ ...{ class: ("text-primory text-left") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.th, __VLS_intrinsicElements.th)({ ...{ class: ("text-primory text-left w-1/6") }, });
     __VLS_elementAsFunction(__VLS_intrinsicElements.th, __VLS_intrinsicElements.th)({});
     __VLS_elementAsFunction(__VLS_intrinsicElements.tbody, __VLS_intrinsicElements.tbody)({});
     for (const [item, index] of __VLS_getVForSourceType((__VLS_ctx.cartItems))) {
         __VLS_elementAsFunction(__VLS_intrinsicElements.tr, __VLS_intrinsicElements.tr)({ key: ((index)), ...{ class: ("border-t-2 border-primory") }, });
-        __VLS_elementAsFunction(__VLS_intrinsicElements.td, __VLS_intrinsicElements.td)({});
+        __VLS_elementAsFunction(__VLS_intrinsicElements.td, __VLS_intrinsicElements.td)({ ...{ class: ("w-[504px]") }, });
         (item.text);
-        __VLS_elementAsFunction(__VLS_intrinsicElements.td, __VLS_intrinsicElements.td)({ ...{ class: ("text-center") }, });
+        __VLS_elementAsFunction(__VLS_intrinsicElements.td, __VLS_intrinsicElements.td)({ ...{ class: ("text-left ") }, });
         (item.price);
-        __VLS_elementAsFunction(__VLS_intrinsicElements.td, __VLS_intrinsicElements.td)({ ...{ class: ("text-center") }, });
+        __VLS_elementAsFunction(__VLS_intrinsicElements.td, __VLS_intrinsicElements.td)({ ...{ class: ("text-left") }, });
         (item.quantity);
-        __VLS_elementAsFunction(__VLS_intrinsicElements.td, __VLS_intrinsicElements.td)({ ...{ class: ("text-center") }, });
+        __VLS_elementAsFunction(__VLS_intrinsicElements.td, __VLS_intrinsicElements.td)({ ...{ class: ("text-left w-1/6") }, });
         (item.price * item.quantity);
         __VLS_elementAsFunction(__VLS_intrinsicElements.td, __VLS_intrinsicElements.td)({});
         __VLS_elementAsFunction(__VLS_intrinsicElements.img, __VLS_intrinsicElements.img)({ ...{ onClick: (...[$event]) => {
@@ -66,11 +66,11 @@ function __VLS_template() {
     }
     __VLS_elementAsFunction(__VLS_intrinsicElements.tfoot, __VLS_intrinsicElements.tfoot)({});
     __VLS_elementAsFunction(__VLS_intrinsicElements.tr, __VLS_intrinsicElements.tr)({ ...{ class: ("border-t-2 border-primory") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.td, __VLS_intrinsicElements.td)({ ...{ class: ("text-primory w-[504px]") }, });
     __VLS_elementAsFunction(__VLS_intrinsicElements.td, __VLS_intrinsicElements.td)({ ...{ class: ("text-primory") }, });
-    __VLS_elementAsFunction(__VLS_intrinsicElements.td, __VLS_intrinsicElements.td)({ ...{ class: ("text-primory") }, });
-    __VLS_elementAsFunction(__VLS_intrinsicElements.td, __VLS_intrinsicElements.td)({ ...{ class: ("text-primory text-center") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.td, __VLS_intrinsicElements.td)({ ...{ class: ("text-primory text-left") }, });
     (__VLS_ctx.totalQuantity);
-    __VLS_elementAsFunction(__VLS_intrinsicElements.td, __VLS_intrinsicElements.td)({ ...{ class: ("text-primory text-center") }, });
+    __VLS_elementAsFunction(__VLS_intrinsicElements.td, __VLS_intrinsicElements.td)({ ...{ class: ("text-primory text-left w-1/6") }, });
     (__VLS_ctx.totalPrice);
     __VLS_elementAsFunction(__VLS_intrinsicElements.td, __VLS_intrinsicElements.td)({});
     __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("bg-primory text-white w-[332px] text-center py-4 cursor-pointer text-2xl font-medium ml-auto") }, });
@@ -86,23 +86,32 @@ function __VLS_template() {
     __VLS_styleScopedClasses['mb-[60px]'];
     __VLS_styleScopedClasses['text-primory'];
     __VLS_styleScopedClasses['text-left'];
+    __VLS_styleScopedClasses['w-[504px]'];
     __VLS_styleScopedClasses['text-primory'];
+    __VLS_styleScopedClasses['text-left'];
     __VLS_styleScopedClasses['text-primory'];
+    __VLS_styleScopedClasses['text-left'];
     __VLS_styleScopedClasses['text-primory'];
+    __VLS_styleScopedClasses['text-left'];
+    __VLS_styleScopedClasses['w-1/6'];
     __VLS_styleScopedClasses['border-t-2'];
     __VLS_styleScopedClasses['border-primory'];
-    __VLS_styleScopedClasses['text-center'];
-    __VLS_styleScopedClasses['text-center'];
-    __VLS_styleScopedClasses['text-center'];
+    __VLS_styleScopedClasses['w-[504px]'];
+    __VLS_styleScopedClasses['text-left'];
+    __VLS_styleScopedClasses['text-left'];
+    __VLS_styleScopedClasses['text-left'];
+    __VLS_styleScopedClasses['w-1/6'];
     __VLS_styleScopedClasses['cursor-pointer'];
     __VLS_styleScopedClasses['border-t-2'];
     __VLS_styleScopedClasses['border-primory'];
     __VLS_styleScopedClasses['text-primory'];
+    __VLS_styleScopedClasses['w-[504px]'];
     __VLS_styleScopedClasses['text-primory'];
     __VLS_styleScopedClasses['text-primory'];
-    __VLS_styleScopedClasses['text-center'];
+    __VLS_styleScopedClasses['text-left'];
     __VLS_styleScopedClasses['text-primory'];
-    __VLS_styleScopedClasses['text-center'];
+    __VLS_styleScopedClasses['text-left'];
+    __VLS_styleScopedClasses['w-1/6'];
     __VLS_styleScopedClasses['bg-primory'];
     __VLS_styleScopedClasses['text-white'];
     __VLS_styleScopedClasses['w-[332px]'];
