@@ -2,14 +2,14 @@
     <section class="container-content">
         <h2 class="text-5xl text-center mx-auto mb-10">Новинки</h2>
         <div class="flex flex-wrap gap-[30px] justify-between">
-            <div class="w-full  xs:max-w-[calc(50%-15px)] lg:max-w-[calc(33%-30px)]" v-for="(good, index) in goods" :key="index">
+            <div class="w-full  xs:max-w-[calc(50%-15px)] lg:max-w-[calc(33%-30px)]" @click="openModal(good)" v-for="(good, index) in goods" :key="index">
                 <div class="aspect-square mb-4">
                     <img :src="good.image" alt="" class="w-full h-full object-cover">
                 </div>
                 <div class="font-medium text-2xl mb-4">
                     {{ good.text }}
                 </div>
-                <div class="w-full border-2 py-3 border-primory text-xl font-medium text-center cursor-pointer hover:bg-primory hover:text-white" @click="openModal(good)">
+                <div class="w-full border-2 py-3 border-primory text-xl font-medium text-center cursor-pointer hover:bg-primory hover:text-white" @click.stop="buyProduct(good)" >
                     Купить
                 </div>
             </div>
@@ -19,7 +19,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, PropType } from 'vue';
+import { useStore } from 'vuex';
 import Modal from '../Home/Modal.vue'; 
 
 import one from '../../assets/images/main/1.png';
@@ -45,6 +46,7 @@ export default defineComponent({
         Modal,
     },
     setup() {
+        const store = useStore()
         const goods: Goods[] = [
             {
                 id: 1,
@@ -109,7 +111,18 @@ export default defineComponent({
             selectedProduct.value = good;
             isModalOpen.value = true;
         };
-
+        const buyProduct = (good: Goods) => {
+            // Добавляем товар в корзину через Vuex
+            store.dispatch('addToCart', {
+                text: good.text,
+                image: good.image,
+                description: good.description,
+                category: good.category,
+                rating: good.rating,
+                price: good.price,
+            });
+            alert(`Вы купили ${good.text}`);
+        };
         const closeModal = () => {
             isModalOpen.value = false;
             selectedProduct.value = null;
@@ -121,7 +134,7 @@ export default defineComponent({
             selectedProduct,
             openModal,
             closeModal,
-            
+            buyProduct,
         };
     },
 });

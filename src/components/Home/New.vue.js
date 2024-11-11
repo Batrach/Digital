@@ -1,4 +1,5 @@
 import { defineComponent, ref } from 'vue';
+import { useStore } from 'vuex';
 import Modal from '../Home/Modal.vue';
 import one from '../../assets/images/main/1.png';
 import two from '../../assets/images/main/2.png';
@@ -12,6 +13,7 @@ export default defineComponent({
         Modal,
     },
     setup() {
+        const store = useStore();
         const goods = [
             {
                 id: 1,
@@ -74,6 +76,18 @@ export default defineComponent({
             selectedProduct.value = good;
             isModalOpen.value = true;
         };
+        const buyProduct = (good) => {
+            // Добавляем товар в корзину через Vuex
+            store.dispatch('addToCart', {
+                text: good.text,
+                image: good.image,
+                description: good.description,
+                category: good.category,
+                rating: good.rating,
+                price: good.price,
+            });
+            alert(`Вы купили ${good.text}`);
+        };
         const closeModal = () => {
             isModalOpen.value = false;
             selectedProduct.value = null;
@@ -84,6 +98,7 @@ export default defineComponent({
             selectedProduct,
             openModal,
             closeModal,
+            buyProduct,
         };
     },
 });
@@ -112,13 +127,15 @@ function __VLS_template() {
     __VLS_elementAsFunction(__VLS_intrinsicElements.h2, __VLS_intrinsicElements.h2)({ ...{ class: ("text-5xl text-center mx-auto mb-10") }, });
     __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("flex flex-wrap gap-[30px] justify-between") }, });
     for (const [good, index] of __VLS_getVForSourceType((__VLS_ctx.goods))) {
-        __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("w-full  xs:max-w-[calc(50%-15px)] lg:max-w-[calc(33%-30px)]") }, key: ((index)), });
+        __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ onClick: (...[$event]) => {
+                    __VLS_ctx.openModal(good);
+                } }, ...{ class: ("w-full  xs:max-w-[calc(50%-15px)] lg:max-w-[calc(33%-30px)]") }, key: ((index)), });
         __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("aspect-square mb-4") }, });
         __VLS_elementAsFunction(__VLS_intrinsicElements.img, __VLS_intrinsicElements.img)({ src: ((good.image)), alt: (""), ...{ class: ("w-full h-full object-cover") }, });
         __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("font-medium text-2xl mb-4") }, });
         (good.text);
         __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ onClick: (...[$event]) => {
-                    __VLS_ctx.openModal(good);
+                    __VLS_ctx.buyProduct(good);
                 } }, ...{ class: ("w-full border-2 py-3 border-primory text-xl font-medium text-center cursor-pointer hover:bg-primory hover:text-white") }, });
     }
     if (__VLS_ctx.isModalOpen) {

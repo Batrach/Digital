@@ -1,7 +1,6 @@
 import { defineComponent } from 'vue';
 import TitleBlock from '../components/Home/TitleBlock.vue';
 import NewBlock from '../components/Home/New.vue';
-// import Banner from '../components/Home/Banner.vue'; 
 export default defineComponent({
     components: {
         TitleBlock,

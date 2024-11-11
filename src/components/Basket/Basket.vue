@@ -4,19 +4,19 @@
         <table class="w-full border-2 border-primory mb-[60px]">
             <thead>
                 <tr>
-                    <th class="text-primory text-left">Товар</th>
-                    <th class="text-primory">Цена, руб</th>
-                    <th class="text-primory">Кол-во</th>
-                    <th class="text-primory">Сумма, руб</th>
+                    <th class="text-primory text-left w-[504px]">Товар</th>
+                    <th class="text-primory text-left">Цена, руб</th>
+                    <th class="text-primory text-left">Кол-во</th>
+                    <th class="text-primory text-left w-1/6">Сумма, руб</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="(item, index) in cartItems" :key="index" class="border-t-2 border-primory">
-                    <td>{{ item.text }}</td>
-                    <td class="text-center">{{ item.price }} руб</td>
-                    <td class="text-center">{{ item.quantity }}</td>
-                    <td class="text-center">{{ item.price * item.quantity }} руб</td>
+                    <td class="w-[504px]">{{ item.text }}</td>
+                    <td class="text-left ">{{ item.price }} руб</td>
+                    <td class="text-left">{{ item.quantity }}</td>
+                    <td class="text-left w-1/6">{{ item.price * item.quantity }} руб</td>
                     <td >
                         <img class="cursor-pointer" :src="garbage" @click="removeItem(item)" alt="">
                     </td>
@@ -24,10 +24,10 @@
             </tbody>
             <tfoot >
                 <tr class="border-t-2 border-primory">
-                    <td class="text-primory">Итог:</td>
+                    <td class="text-primory w-[504px]">Итог:</td>
                     <td class="text-primory"></td>
-                    <td class="text-primory text-center">{{ totalQuantity }}</td>
-                    <td class="text-primory text-center">{{ totalPrice }} руб</td>
+                    <td class="text-primory text-left">{{ totalQuantity }}</td>
+                    <td class="text-primory text-left w-1/6">{{ totalPrice }} руб</td>
                     <td></td>
                 </tr>
             </tfoot>
@@ -54,7 +54,7 @@ export default defineComponent({
         const totalPrice = computed(() => store.getters.totalPrice);
 
         const removeItem = (item: CartItem) => {
-            store.commit('removeFromCart', item); // Предположим, что у вас есть мутация removeFromCart
+            store.commit('removeFromCart', item); 
         }
         return {
             cartItems,
