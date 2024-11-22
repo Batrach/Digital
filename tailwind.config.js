@@ -8,7 +8,7 @@ export default {
     extend: {
       margin: {
         '30': '7.5rem',
-        '25': '100px', // Значение отступа вниз на 30 единиц
+        '25': '100px', 
       },
       padding:{
         '24': "5rem",
@@ -23,14 +23,14 @@ export default {
         'primory': '#275742'
       },
       maxWidth: {
-        '412': '412px', // добавляем новое значение
+        '412': '412px', 
         '607': '607px',
       },
       fontFamily:{
         'minecraft': ['maincraft']
       },
       screens: {
-        'xs': '480px', // Медиа-запрос для разрешения 480px и выше
+        'xs': '480px', 
       },
     },
   },

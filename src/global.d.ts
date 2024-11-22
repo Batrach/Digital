@@ -5,7 +5,7 @@ declare module '*.vue' {
   }
   
   declare module '*.svg' {
-    const content: any; // Можно заменить на более конкретный тип
+    const content: any; 
     export default content;
   }
   
@@ -34,7 +34,6 @@ declare module '*.vue' {
     export default src;
   }
   
-  // Объявление интерфейса Link
   interface Link {
     id: number;
     title: string;

@@ -1,10 +1,8 @@
 import { defineComponent } from 'vue';
-import TitleBlock from '../components/Home/TitleBlock.vue';
-import NewBlock from '../components/Home/New.vue';
+import List from '../components/List.vue';
 export default defineComponent({
     components: {
-        TitleBlock,
-        NewBlock,
+        List,
     },
 });
 ; /* PartiallyEnd: #3632/script.vue */
@@ -12,8 +10,7 @@ function __VLS_template() {
     const __VLS_ctx = {};
     const __VLS_localComponents = {
         ...{
-            TitleBlock,
-            NewBlock,
+            List,
         },
         ...{},
         ...__VLS_ctx,
@@ -25,21 +22,18 @@ function __VLS_template() {
     };
     let __VLS_directives;
     let __VLS_styleScopedClasses;
-    // CSS variable injection 
-    // CSS variable injection end 
     let __VLS_resolvedLocalAndGlobalComponents;
-    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("home-page") }, });
-    const __VLS_0 = __VLS_resolvedLocalAndGlobalComponents.TitleBlock;
-    /** @type { [typeof __VLS_components.TitleBlock, ] } */
+    __VLS_elementAsFunction(__VLS_intrinsicElements.div, __VLS_intrinsicElements.div)({ ...{ class: ("flex justify-center items-center min-h-screen bg-gray-100") }, });
+    const __VLS_0 = __VLS_resolvedLocalAndGlobalComponents.List;
+    /** @type { [typeof __VLS_components.List, ] } */
     // @ts-ignore
     const __VLS_1 = __VLS_asFunctionalComponent(__VLS_0, new __VLS_0({}));
     const __VLS_2 = __VLS_1({}, ...__VLS_functionalComponentArgsRest(__VLS_1));
-    const __VLS_6 = __VLS_resolvedLocalAndGlobalComponents.NewBlock;
-    /** @type { [typeof __VLS_components.NewBlock, ] } */
-    // @ts-ignore
-    const __VLS_7 = __VLS_asFunctionalComponent(__VLS_6, new __VLS_6({}));
-    const __VLS_8 = __VLS_7({}, ...__VLS_functionalComponentArgsRest(__VLS_7));
-    __VLS_styleScopedClasses['home-page'];
+    __VLS_styleScopedClasses['flex'];
+    __VLS_styleScopedClasses['justify-center'];
+    __VLS_styleScopedClasses['items-center'];
+    __VLS_styleScopedClasses['min-h-screen'];
+    __VLS_styleScopedClasses['bg-gray-100'];
     var __VLS_slots;
     var __VLS_inheritedAttrs;
     const __VLS_refs = {};
